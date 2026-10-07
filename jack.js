@@ -1,6 +1,6 @@
 /*! Jack Perfumaria — layout personalizado | Agência Raliss · Sites com a Lari */
 (function(){var run=function(){(async()=>{
-if(window.__JKB)return;window.__JKB=1;
+if(window.__JKB)return;window.__JKB=1;document.querySelectorAll('.js-home-main-slider img[data-srcset], .js-home-main-slider img[data-src]').forEach(im=>{if(im.dataset.srcset){im.setAttribute('srcset',im.dataset.srcset);im.removeAttribute('data-srcset')}if(im.dataset.src){im.setAttribute('src',im.dataset.src);im.removeAttribute('data-src')}im.classList.add('swiper-lazy-loaded')});
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const S=(p,w=1.3,cls='jk-ico')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
@@ -35,7 +35,7 @@ if(headRow&&data.length){nav=document.createElement('nav');nav.id='jk-nav';headR
   for(let i=0;i<items.length;i++){used+=items[i].offsetWidth;if(used>max-(i<items.length-1?moreW:0)){cut=i;break}}
   if(cut<items.length){items.slice(cut).forEach(e=>e.remove());const m=document.createElement('div');m.className='jk-item jk-more has-kids';m.innerHTML=`<a class="jk-link" href="#">Mais categorias<span>+</span></a>`+mega('Todas as categorias','',data.slice(cut),'Explore');row.appendChild(m);m.querySelector('.jk-link').onclick=e=>e.preventDefault()}
   bind()};
- await document.fonts.ready;fit();window.__jkfit=fit;let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(fit,150)})}
+ fit();document.fonts&&document.fonts.ready.then(()=>fit());window.__jkfit=fit;let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(fit,150)})}
 const ov=document.createElement('div');ov.id='jk-dw-ov';const dw=document.createElement('aside');dw.id='jk-dw';
 const acc=($('.js-head-row .js-header-utility-icon-only a')||{getAttribute:()=>'/account/login/'}).getAttribute('href');
 dw.innerHTML=`<div class="dw-top"><img src="${logo?(logo.currentSrc||logo.src):''}" alt=""><button class="dw-x" aria-label="Fechar">${S(I.x,1.4)}</button></div><div class="dw-hello">Categorias</div><div class="dw-stage"></div><div class="dw-foot"><a href="${acc}">${S(I.user,1.2)}Minha conta</a><a href="#" class="dw-cart">${S(I.bag,1.2)}Sacola</a></div>`;
