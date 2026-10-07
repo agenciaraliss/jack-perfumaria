@@ -1162,3 +1162,11 @@ html,body{overflow-x:clip}
  .js-informative-banners .swiper-slide h3{font-size:11px!important;letter-spacing:.12em!important;margin-bottom:4px!important;width:100%!important}
  .js-informative-banners .swiper-slide p{font-size:11.5px!important;width:100%!important}
 }
+/* jk-ready: a página só aparece montada (trava de segurança em 4s) */
+html:not(.jk-ready) body{opacity:0;animation:jkShow .3s ease 4s forwards}
+html.jk-ready body{opacity:1;transition:opacity .35s ease}
+@keyframes jkShow{to{opacity:1}}
+/* banner colado no informativo, sem bolinhas */
+.js-home-main-slider .swiper-pagination,.js-swiper-home-pagination,.js-home-main-slider-container .swiper-pagination{display:none!important}
+.js-home-main-slider-container,.js-home-main-slider-container > *,.js-home-main-slider{margin-bottom:0!important;padding-bottom:0!important}
+.js-home-main-slider .swiper-slide img{display:block}
