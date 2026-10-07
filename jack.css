@@ -1184,3 +1184,9 @@ html.jk-ready body{opacity:1;transition:opacity .35s ease}
 html:not(.jk-ready){background:var(--main-background)}
 html:not(.jk-ready)::after{content:"";position:fixed;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border:1px solid var(--accent-color);transform:rotate(45deg);animation:jkPulse .9s ease-in-out infinite alternate;z-index:2147483647;pointer-events:none}
 @keyframes jkPulse{from{opacity:.2;transform:rotate(45deg) scale(.75)}to{opacity:1;transform:rotate(45deg) scale(1.2)}}
+/* aviso de cookies: a pílula dos decants some enquanto ele está na tela */
+body.jk-cookie #jk-pill,body.jk-cookie #jk-pop{opacity:0!important;pointer-events:none!important}
+/* pesquisar no celular: texto centralizado na altura e maior */
+@media (max-width:767px){html body .js-head-row .js-search-input{font-size:16px!important;height:auto!important;line-height:22px!important;padding:12px 12px!important;align-self:center!important}
+html body .js-head-row .js-search-input::placeholder{font-size:16px!important;line-height:22px!important}
+html body .js-head-row .js-search-form .jk-s-tag{font-size:10px!important}}
