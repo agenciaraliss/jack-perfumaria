@@ -1,6 +1,6 @@
 /*! Jack Perfumaria — layout personalizado | Agência Raliss · Sites com a Lari */
 (function(){var run=function(){(async()=>{
-if(window.__JKB)return;window.__JKB=1;document.querySelectorAll('.js-home-main-slider img[data-srcset], .js-home-main-slider img[data-src]').forEach(im=>{if(im.dataset.srcset){im.setAttribute('srcset',im.dataset.srcset);im.removeAttribute('data-srcset')}if(im.dataset.src){im.setAttribute('src',im.dataset.src);im.removeAttribute('data-src')}im.classList.add('swiper-lazy-loaded')});
+if(window.__JKB)return;window.__JKB=1;(()=>{const R=document.documentElement,s=getComputedStyle(R),g=k=>s.getPropertyValue(k).trim().toLowerCase();if(g('--header-featured-link-foreground')==='#fbbf40')R.style.setProperty('--header-featured-link-foreground','#C79A55');if(g('--header-desktop-nav-background')==='#ffffff'&&g('--header-desktop-nav-foreground')==='#3f3d38'){R.style.setProperty('--header-desktop-nav-background','var(--main-background)');R.style.setProperty('--header-desktop-nav-foreground','var(--main-foreground)')}})();document.querySelectorAll('.js-home-main-slider img[data-srcset], .js-home-main-slider img[data-src]').forEach(im=>{if(im.dataset.srcset){im.setAttribute('srcset',im.dataset.srcset);im.removeAttribute('data-srcset')}if(im.dataset.src){im.setAttribute('src',im.dataset.src);im.removeAttribute('data-src')}im.classList.add('swiper-lazy-loaded')});
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const S=(p,w=1.3,cls='jk-ico')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
@@ -17,7 +17,7 @@ if(form){if(!form.querySelector('.jk-s-tag')){const t=document.createElement('sp
  const btn=form.querySelector('.js-search-input-submit');if(btn)btn.innerHTML=S(I.search,1.4);
  const inp=form.querySelector('.js-search-input');
  const cats=$$('.nav-desktop .js-desktop-nav-item').map(li=>(li.querySelector('a')||li).textContent.trim().replace(/\s+/g,' ')).filter(t=>t&&t.length<34&&!/todos|pre[çc]o/i.test(t));
- let k=0;const ph=()=>{if(document.activeElement===inp||inp.value)return;inp.placeholder='Experimente “'+cats[k++%cats.length]+'”'};if(cats.length){ph();setInterval(ph,2600)}
+ let k=0;const ph=()=>{if(document.activeElement===inp||inp.value)return;if(innerWidth<768){inp.placeholder='O que você procura?';return}inp.placeholder='Experimente “'+cats[k++%cats.length]+'”'};if(cats.length){ph();setInterval(ph,2600)}
  const sg=()=>$('.js-search-form-suggestions');
  inp.addEventListener('focus',()=>{inp.placeholder='Digite um perfume, marca ou categoria';sg()&&sg().style.removeProperty('display')});
  inp.addEventListener('input',()=>{sg()&&sg().style.removeProperty('display')})}
@@ -270,5 +270,5 @@ const h1=document.querySelector('section.page-header h1');if(h1&&key&&!document.
 const fix=()=>document.querySelectorAll('[class*="js-products-"][class*="-container"] .swiper-container, .js-swiper-related').forEach(el=>{const sw=el.swiper;if(!sw||sw.__jkBp)return;const o=sw.originalParams.breakpoints||{};const k=Object.keys(o).map(Number).filter(x=>x>=700).sort((a,b)=>a-b)[0];if(!k)return;const d=o[k],n=d.slidesPerView;if(typeof n!=='number'||n<=3)return;sw.__jkBp=1;
  const mk=v=>Object.assign({},d,{slidesPerView:v,slidesPerGroup:Math.min(d.slidesPerGroup||v,v)});const bp=Object.assign({},o);delete bp[k];bp[768]=mk(3);bp[992]=mk(Math.min(n,4));bp[1200]=mk(n);
  sw.params.breakpoints=bp;sw.originalParams.breakpoints=bp;sw.currentBreakpoint=null;try{sw.setBreakpoint();sw.update()}catch(e){}});
-fix();setTimeout(fix,1500);})();
-})};if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",run)}else{run()}})();
+fix();setTimeout(fix,1500);})();;requestAnimationFrame(()=>document.documentElement.classList.add('jk-ready'));
+}).catch(()=>{}).finally(()=>document.documentElement.classList.add('jk-ready'))};if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",run)}else{run()}})();
