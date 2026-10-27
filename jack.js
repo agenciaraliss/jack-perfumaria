@@ -132,6 +132,13 @@ if(ft&&!ft.querySelector('.jk-foot')){
  if(nIn){nIn.setAttribute('placeholder','Digite seu melhor e-mail');w.querySelector('.jk-strip-slot').replaceWith(nIn);
   w.querySelector('.jk-send').onclick=()=>{if(!nIn.value||!nIn.checkValidity()){w.querySelector('.jk-strip-msg').textContent='Confere o e-mail, por favor.';nIn.focus();return}const sb=nf.querySelector('[type=submit]');sb?sb.click():nf.requestSubmit()};
   nIn.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();w.querySelector('.jk-send').click()}})}}
+/* Convite VIP: complemento da newsletter, sem alterar o formulário. */
+const vipNews=document.querySelector('footer.js-footer .jk-f-news');
+if(vipNews&&!document.getElementById('jk-vip')){
+ const vip=document.createElement('section');vip.id='jk-vip';vip.className='jk-vip';vip.setAttribute('aria-labelledby','jk-vip-title');
+ vip.innerHTML=`<div class="jk-vip-card"><div class="jk-vip-copy"><span class="jk-vip-kicker"><i aria-hidden="true">◆</i> Grupo VIP da Jack</span><h3 id="jk-vip-title">Faça parte do nosso Grupo Vip</h3><p>Receba novidades e ofertas no WhatsApp.</p></div><div class="jk-vip-action"><a class="jk-vip-btn" href="https://chat.whatsapp.com/J65m1dHW7OX3Y0oT5rZqIT" target="_blank" rel="noopener noreferrer">${S(I.wa)}<span>Quero fazer parte</span>${S(I.arrow)}</a><span class="jk-vip-note">Nos encontramos no WhatsApp</span></div></div>`;
+ vipNews.insertAdjacentElement('afterend',vip);
+}
 try{const t=JSON.parse(localStorage.getItem('jkTiers')||'null');if(t&&t.length>1&&window.JK_PROMO==null)window.__jkT=t}catch(e){}window.JK_PROMO=window.JK_PROMO||{nome:'Compre mais, pague menos',degraus:[[1,0],[2,5],[3,8],[4,11],[5,14],[10,20]],conta:n=>/decant|fracionad/i.test(n)};
 if(window.__jkT)JK_PROMO.degraus=window.__jkT;const D=JK_PROMO.degraus;
 const tierOf=n=>{let p=0;D.forEach(([q,v])=>{if(n>=q)p=v});return p};window.jkTierOf=tierOf;

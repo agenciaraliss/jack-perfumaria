@@ -1190,3 +1190,32 @@ body.jk-cookie #jk-pill,body.jk-cookie #jk-pop{opacity:0!important;pointer-event
 @media (max-width:767px){html body .js-head-row .js-search-input{font-size:16px!important;height:auto!important;line-height:22px!important;padding:12px 12px!important;align-self:center!important}
 html body .js-head-row .js-search-input::placeholder{font-size:16px!important;line-height:22px!important}
 html body .js-head-row .js-search-form .jk-s-tag{font-size:10px!important}}
+
+/* Convite VIP junto da newsletter: cores e fontes do tema. */
+.jk-foot .jk-vip{padding:26px 0 0}
+.jk-vip-card{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:40px;padding:34px 38px;background:var(--accent-color);border:1px solid var(--header-featured-link-foreground);color:var(--main-background);box-shadow:0 14px 28px -24px var(--accent-color)}
+.jk-vip-card::before{content:"";position:absolute;inset:6px;border:1px solid color-mix(in srgb,var(--header-featured-link-foreground) 40%,transparent);pointer-events:none;z-index:-1}
+.jk-vip-card::after{content:"";position:absolute;right:28%;top:18px;bottom:18px;width:1px;background:linear-gradient(transparent,color-mix(in srgb,var(--header-featured-link-foreground) 45%,transparent),transparent);pointer-events:none;z-index:-1}
+.jk-vip-kicker{display:flex;align-items:center;gap:10px;font:700 9px/1.5 var(--body-font);letter-spacing:.24em;text-transform:uppercase;color:var(--header-featured-link-foreground)}
+.jk-vip-kicker i{font-size:7px;font-style:normal;letter-spacing:0}
+.jk-foot .jk-vip h3{margin:10px 0 8px;font:400 42px/1.1 var(--heading-font);color:var(--main-background)}
+.jk-foot .jk-vip p{margin:0;max-width:410px;font:500 12.5px/1.7 var(--body-font);color:var(--main-background)}
+.jk-vip-action{display:flex;flex-direction:column;align-items:center;gap:10px}
+.jk-foot a.jk-vip-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:14px 22px;box-sizing:border-box;border:1px solid var(--header-featured-link-foreground);background:var(--header-featured-link-foreground);color:var(--accent-color)!important;font:700 10px/1.5 var(--body-font);letter-spacing:.12em;text-transform:uppercase;text-align:center;transition:background .2s,color .2s}
+.jk-foot .jk-vip-btn svg,.jk-foot .jk-vip-btn svg *{color:inherit!important}.jk-vip-btn svg{width:20px;height:20px;flex:0 0 20px}
+.jk-vip-btn svg:last-child{width:16px;flex-basis:16px}
+.jk-foot a.jk-vip-btn:hover{background:var(--main-background);color:var(--accent-color)!important}
+.jk-foot a.jk-vip-btn:focus-visible{outline:2px solid var(--main-background);outline-offset:4px}
+.jk-vip-note{font:500 10px/1.5 var(--body-font);letter-spacing:.03em;color:var(--main-background)}
+@media(min-width:768px) and (max-width:1050px){.jk-vip-card{gap:24px;padding:30px 26px}.jk-foot .jk-vip h3{font-size:38px}.jk-vip-card::after{display:none}}
+@media(max-width:767px){
+ .jk-foot .jk-vip{padding-top:24px}
+ .jk-vip-card{grid-template-columns:1fr;gap:24px;padding:30px 22px;text-align:center}
+ .jk-vip-card::after{display:none}
+ .jk-vip-kicker{justify-content:center;font-size:8px;letter-spacing:.2em}
+ .jk-foot .jk-vip h3{font-size:38px;max-width:240px;margin:14px auto 12px}
+ .jk-foot .jk-vip p{max-width:280px;margin:0 auto}
+ .jk-vip-action{width:100%}
+ .jk-foot a.jk-vip-btn{width:100%;max-width:300px}
+}
+@media(prefers-reduced-motion:reduce){.jk-foot a.jk-vip-btn{transition:none}}
